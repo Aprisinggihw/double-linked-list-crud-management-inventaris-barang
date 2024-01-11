@@ -93,10 +93,10 @@ func displayDataFromDatabase(node *Node) {
 func addToFile(filePath string) {
 	current := head
 	file, err := os.OpenFile(filePath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
-	defer file.Close()
 	if err != nil {
 		fmt.Println("Gak Bisa Buka File", err)
 	}
+	defer file.Close()
 	for current != nil {
 		line := strconv.Itoa(current.stok)
 		file.WriteString(current.id + " " + current.nama + " " + line + "\n")
